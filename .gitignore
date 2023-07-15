@@ -1,0 +1,3 @@
+phpstan/vendor
+phpstan/composer.lock
+.DS_Store

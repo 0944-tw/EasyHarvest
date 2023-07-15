@@ -1,0 +1,7 @@
+---
+name: SuperHarvest
+version: 0.0.1
+main: MeTooIDK\SuperHarvest\Main
+api: 5.3.1
+src-namespace-prefix: MeTooIDK\SuperHarvest
+...
