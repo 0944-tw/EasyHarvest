@@ -6,8 +6,8 @@
 Inspired from https://github.com/BrilliantTeam/SuperHarvest
 靈感來源於 https://github.com/BrilliantTeam/SuperHarvest
 
-## 🪪 License | 執照
+# 🪪 License | 執照
 This Project Use GPLv3
 
-## 🥲 Already Known Issues | 已知問題
+# 🥲 Already Known Issues | 已知問題
 - Hoe harvest will only drop seeds | 鋤頭採集只會掉落種子
