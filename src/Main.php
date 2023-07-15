@@ -109,18 +109,21 @@ class Main extends PluginBase
 
     @mkdir($this->getDataFolder());
     $this->saveResource("config.yml");
+    
     $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
     $this->config->set("hint", "Get Block ID at https://www.digminecraft.com/lists/item_id_list_pe.php");
     if (!$this->config->get("blocks")) {
-      $this->getLogger()->info(TextFormat::DARK_GREEN . "Config Files not found. Creating...");
+      $this->getLogger()->info(TextFormat::YELLOW . "Config Files not found. Creating...");
       $this->config->set("blocks", $this->defaultConfigBlock["blocks"]);
       $this->config->set("tool_cant_mine", $this->defaultConfigBlock["tool_cant_mine"]);
     }
     if (!$this->config->get("debug")) {
-      $this->config->set("debug", true);
+      $this->config->set("debug", false);
     }
     $this->config->save();
-    if ($this->config->get("debug")) {
+    $this->getLogger()->info(TextFormat::GREEN . "Config Files has been created");
+    if ($this->config->get("debug") == true) {
+      $this->getLogger()->info($this->config->get("debug"));
       $this->debug = true;
       $this->getLogger()->info(TextFormat::BLUE . "DEBUG MODE ENABLED");
       $this->getLogger()->info("Blocks: " . json_encode($this->config->get("blocks")));
