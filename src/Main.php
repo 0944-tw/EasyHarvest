@@ -109,6 +109,7 @@ class Main extends PluginBase
 
     @mkdir($this->getDataFolder());
     $this->saveResource("config.yml");
+      
     
     $this->config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
     $this->config->set("hint", "Get Block ID at https://www.digminecraft.com/lists/item_id_list_pe.php");
@@ -128,11 +129,9 @@ class Main extends PluginBase
       $this->getLogger()->info(TextFormat::BLUE . "DEBUG MODE ENABLED");
       $this->getLogger()->info("Blocks: " . json_encode($this->config->get("blocks")));
     }
-    $this->getLogger()->info(TextFormat::DARK_GREEN . "I've been enabled!");
     $this->getServer()->getPluginManager()->registerEvents(new SHBlockBreakEvent($this), $this);
   }
   public function onLoad(): void
   {
-    $this->getLogger()->info(TextFormat::WHITE . " SuperHarvest Loaded");
   }
 }

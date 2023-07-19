@@ -25,19 +25,7 @@ class SHBlockBreakEvent implements Listener
     public function __construct(private Main $plugin)
     {
     }
-    private function log($String)
-    {
-        $this->plugin->getLogger()->info(TextFormat::WHITE . $String);
-    }
-    private function debug($Text)
-    {
-       if (gettype($Text) == "array") {
-        $Text = json_encode($Text);
-       }
-       if ($this->plugin->debug) {
-        $this->plugin->getLogger()->info(TextFormat::GREEN . "[DEBUG] " . $Text);
-       }
-    }
+    
     private function check(Block $block, int $id, $onCheckedSuccess): void
     {
         
@@ -104,20 +92,14 @@ class SHBlockBreakEvent implements Listener
             $itemType = null;
         }
         if ($itemType == null) return;
-        if ($this->plugin->debug) {
-            $this->plugin->getLogger()->info(TextFormat::WHITE . " - Item Type: " . $itemType . " Item Name: " .  $itemInHandName );
-        }
+     
         //
         $matched = in_array($block->getName(), $this->blocks[$itemType]);
-        if ($this->plugin->debug) {
-            $this->plugin->getLogger()->info(TextFormat::WHITE . $block->getName() . " - ID: " . $id);
-        }
+       
         // Check Tool Can Mine
         if (isset($this->toolCantMine[$itemInHandName])) {
-            $this->debug("Player Using Item in tool_cant_mine");
             $cantMine = $this->toolCantMine[$itemInHandName];
-            if (in_array($block->getName(), $cantMine)) {
-                $this->debug("Player Current item can't mine this block");
+            if (in_array($block->getName(), $cantMine)) {          
                 $matched = false;
             }
         }
@@ -125,7 +107,6 @@ class SHBlockBreakEvent implements Listener
 
         if ($matched) {
             if ($this->plugin->debug) {
-                $this->debug("MATCHED");
             }
             $this->breakOnMatch($block, $block, $player);
         }
