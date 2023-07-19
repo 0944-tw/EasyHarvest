@@ -1,13 +1,6 @@
 # ⛏️ SuperHarvest | 連鎖採集
-
+SuperHarvest is similar to BrilliantTeam/SuperHarvest, but this one is for PocketMine-MP.
+SuperHarvest allows you to break multiple blocks at once.
+**GPLv3**
 [![Download Plugin](https://custom-icon-badges.herokuapp.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download")](https://poggit.pmmp.io/p/SuperHarvest/)
-
-
 Inspired from https://github.com/BrilliantTeam/SuperHarvest
-靈感來源於 https://github.com/BrilliantTeam/SuperHarvest
-
-### 🪪 License | 執照
-This Project Use GPLv3
-
-### 🥲 Already Known Issues | 已知問題
-- Hoe harvest will only drop seeds | 鋤頭採集只會掉落種子
